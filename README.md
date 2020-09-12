@@ -55,10 +55,80 @@ sudo apt update
 sudo apt install sublime-text
 ```
 
-* Установить `Preferences` из папки `sublime-text`
-* Установить `Key Bindings` из папки `sublime-text`
+* Установить `Preferences`:
+```json
+{
+	"always_show_minimap_viewport": true,
+	"auto_complete": true,
+	"auto_complete_commit_on_tab": true,
+	"auto_complete_cycle": true,
+	"auto_find_in_selection": true,
+	"auto_match_enabled": false,
+	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
+	"drag_text": false,
+	"draw_minimap_border": true,
+	"fallback_encoding": "Cyrillic (Windows 1251)",
+	"fold_buttons": false,
+	"font_face": "JetBrains Mono",
+	"font_size": 11,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Rust",
+		"Vintage"
+	],
+	"margin": 0,
+	"preview_on_click": false,
+	"rulers":
+	[
+		120
+	],
+	"show_encoding": true,
+	"show_panel_on_build": false,
+	"sublime_merge_path": "Q:/Program/Portable/SublimeMerge/sublime_merge.exe",
+	"theme": "Default.sublime-theme",
+	"word_wrap": true,
+	"wrap_width": 120
+}
+
+```
+* Установить `Key Bindings`:
+```json
+[
+	{ "keys": ["ctrl+tab"], "command": "next_view" },
+	{ "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+]
+```
 * Установить `Package Control`
 * Установить пакеты `Rust Enhanced`, `TOML`, `PlainTasks`
+* Настроить `Rust Enhanced`:
+```json
+{
+	"rust_syntax_checking_method": "clippy",
+	"rust_message_theme": "solid"
+}
+```
+
+# Sublime Merge
+
+* Настроить `Diff`:
+```json
+{
+	"auto_diff_style_min_chars": 80,
+	"diff_style": "side-by-side",
+	"word_wrap": true
+}
+```
+
+* Настроить `Preferences`:
+```json
+{
+	"font_face": "JetBrains Mono",
+	"font_size": 8,
+	"side_bar_layout": "tabs",
+}
+```
 
 # git
 

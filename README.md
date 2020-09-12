@@ -1,6 +1,6 @@
 # Основа
 
-Использовать Pop!\_OS, потому что там из коробки поддерживаются дрова NVIDIA, и всё плавно работает.
+Использовать [Pop!\_OS](https://pop.system76.com/), потому что там из коробки поддерживаются дрова NVIDIA, и всё плавно работает.
 
 # Установить через центр приложений:
 
@@ -154,13 +154,88 @@ rm -rf JetBrains
 
 * Установить шрифт `JetBrainsMono`
 * Настроить копипаст на `Ctrl+C`, `Ctrl+V`
-* `stty intr ^J` - теперь `Ctrl+C` не будет выключать приложение, а это будет работать через `Ctrl+J`
 
 `~/.bashrc` настроить:
 * `HISTSIZE=-1`
 * `HISTFILESIZE=-1`
-* `eval "$(starship init bash)"`
+* `eval "$(starship init bash)"` - чтобы работала консолька `starship`
+* `stty intr ^J` - теперь `Ctrl+C` не будет выключать приложение, а это будет работать через `Ctrl+J`
+* Возможность делать консольку цветной (для определения множества окон консоли при выборе различных приложений):
+```bash
+alias color_normal='echo -e "\033]11;#333333\007"'
+alias color_blue='echo -e "\033]11;#2d2f39\007"'
+alias color_red='echo -e "\033]11;#363030\007"'
+alias color_miku='echo -e "\033]11;#2f3737\007"'
+```
 
 ## Starship
 
-* `mkdir -p ~/.config && touch ~/.config/starship.toml`
+`mkdir -p ~/.config && touch ~/.config/starship.toml`
+
+Вставить в этот файл:
+```toml
+[directory]
+truncate_to_repo = false
+truncation_length = -1
+
+[git_status]
+conflicted = "≠"
+diverged = "∇"
+untracked = "U"
+stashed = "S"
+modified = "M"
+staged.value = "++"
+staged.style = "green"
+staged_count.enabled = true
+staged_count.style = "green"
+renamed = "R"
+deleted = "D"
+show_sync_count = true
+
+[memory_usage]
+disabled = true
+show_percentage = true
+show_swap = false
+threshold = -1
+```
+
+# Gnome
+
+* Установить [NoAnnoyance](https://extensions.gnome.org/extension/1236/noannoyance/) - не показывается уведомление "Window is Ready", а нужное окно сразу открывается.
+* `sudo apt install wmctrl xdotool` - для управления окнами
+* Поместить в `$PATH` скрипт [jumpapp](https://github.com/mkropat/jumpapp)
+* Поставить следующие хоткеи: (получено из `dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/`)
+```
+[custom0]
+binding='<Super>1'
+command='jumpapp telegram-desktop'
+name='telegram'
+
+[custom1]
+binding='<Super>2'
+command='jumpapp firefox'
+name='firefox'
+
+[custom2]
+binding='<Super>3'
+command='jumpapp gnome-terminal'
+name='terminal'
+
+[custom3]
+binding='<Super>4'
+command='jumpapp subl'
+name='sublime text'
+
+[custom4]
+binding='<Primary><Shift>Print'
+command='flameshot gui'
+name='flameshot'
+```
+* Можно использовать `wmctrl -lx` для определения класса окна.
+
+
+# TODO
+
+* [ ] Разобраться во всех хоткеях убунты, настроить их на себя, и засунуть в клаву
+* [ ] Запретить Alt+Tab
+* [ ] Сделать чтобы было настроено не меньше чем я настроил в своё время i3

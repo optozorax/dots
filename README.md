@@ -70,7 +70,7 @@ sudo apt install sublime-text
 	"fallback_encoding": "Cyrillic (Windows 1251)",
 	"fold_buttons": false,
 	"font_face": "JetBrains Mono",
-	"font_size": 11,
+	"font_size": 10,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -84,6 +84,7 @@ sudo apt install sublime-text
 	[
 		120
 	],
+	"show_definitions": false,
 	"show_encoding": true,
 	"show_panel_on_build": false,
 	"sublime_merge_path": "Q:/Program/Portable/SublimeMerge/sublime_merge.exe",
@@ -91,14 +92,6 @@ sudo apt install sublime-text
 	"word_wrap": true,
 	"wrap_width": 120
 }
-
-```
-* Установить `Key Bindings`:
-```json
-[
-	{ "keys": ["ctrl+tab"], "command": "next_view" },
-	{ "keys": ["ctrl+shift+tab"], "command": "prev_view" },
-]
 ```
 * Установить `Package Control`
 * Установить пакеты `Rust Enhanced`, `TOML`, `PlainTasks`
@@ -233,6 +226,21 @@ name='flameshot'
 ```
 * Можно использовать `wmctrl -lx` для определения класса окна.
 
+# Firefox
+
+Зайти в `about:config`:
+* Чтобы при копировании урла, не было процентов: `browser.urlbar.decodeURLsOnCopy` = `false`.
+
+
+Настроить Stylish:
+* Чтобы на всех сайтах символ таба был размером 4 пробела, а не идиотским 8:
+```
+* {
+    -moz-tab-size : 4;
+      -o-tab-size : 4;
+         tab-size : 4;
+}
+```
 
 # TODO
 

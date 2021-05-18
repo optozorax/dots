@@ -70,7 +70,8 @@ sudo apt install sublime-text
 	"fallback_encoding": "Cyrillic (Windows 1251)",
 	"fold_buttons": false,
 	"font_face": "JetBrains Mono",
-	"font_size": 10,
+	"font_size": 10.5,
+	"gpu_window_buffer": true,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -82,15 +83,16 @@ sudo apt install sublime-text
 	"preview_on_click": false,
 	"rulers":
 	[
-		120
+		110
 	],
 	"show_definitions": false,
 	"show_encoding": true,
 	"show_panel_on_build": false,
 	"sublime_merge_path": "Q:/Program/Portable/SublimeMerge/sublime_merge.exe",
 	"theme": "Default.sublime-theme",
+	"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?«»",
 	"word_wrap": true,
-	"wrap_width": 120
+	"wrap_width": 110
 }
 ```
 * Установить `Package Control`

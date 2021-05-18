@@ -201,7 +201,7 @@ threshold = -1
 ```
 [custom0]
 binding='<Super>1'
-command='jumpapp telegram-desktop'
+command='jumpapp telegram'
 name='telegram'
 
 [custom1]
@@ -211,20 +211,41 @@ name='firefox'
 
 [custom2]
 binding='<Super>3'
-command='jumpapp gnome-terminal'
-name='terminal'
+command='jumpapp sublime_text'
+name='sublime text'
 
 [custom3]
 binding='<Super>4'
-command='jumpapp subl'
-name='sublime text'
+command='jumpapp nautilus'
+name='files'
 
 [custom4]
 binding='<Primary><Shift>Print'
 command='flameshot gui'
 name='flameshot'
+
+[custom5]
+binding='<Super>6'
+command='jumpapp gnome-terminal'
+name='terminal'
+
+[custom6]
+binding='<Super>8'
+command='jumpapp spotify'
+name='spotify'
+
+[custom7]
+binding='<Super>9'
+command='jumpapp sublime_merge'
+name='merge'
+
+[custom8]
+binding='<Super>5'
+command='jumpapp Discord'
+name='discord'
 ```
 * Можно использовать `wmctrl -lx` для определения класса окна.
+* Чтобы добавить какую-то программу в path, чтобы она запускалась jumpapp'ом, нужно для начала найти PID этой программы, а затем использовать: `ls -al /proc/<PID>/exe`, и можно узнать где она находится.
 
 # Firefox
 

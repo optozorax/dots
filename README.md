@@ -28,7 +28,7 @@ cargo install bat ripgrep starship
 sudo apt install gnome-tweaks
 ```
 
-* Tweaks -> Fonts, Scaling Factor = 1.5 (так как у меня 4к экран, и нвидия, это лучший способ сделать такое, fractional scaling в обыпчных настройках не будет работать)
+* Tweaks -> Fonts, Scaling Factor = 1.45 (так как у меня 4к экран, и нвидия, это лучший способ сделать такое, fractional scaling в обыпчных настройках не будет работать)
 * Настроить переключение клавиатуры на CapsLock
 
 # Проги

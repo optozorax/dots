@@ -212,7 +212,10 @@ threshold = -1
 
 * Установить [NoAnnoyance](https://extensions.gnome.org/extension/1236/noannoyance/) - не показывается уведомление "Window is Ready", а нужное окно сразу открывается.
 * `sudo apt install wmctrl xdotool` - для управления окнами
-* Поместить в `$PATH` скрипт [jumpapp](https://github.com/mkropat/jumpapp)
+* Поместить в `$PATH` скрипт [jumpapp](https://github.com/mkropat/jumpapp):
+  ```
+  curl https://raw.githubusercontent.com/mkropat/jumpapp/master/jumpapp > ~/.cargo/bin/jumpapp
+  ```
 * Поставить следующие хоткеи: (получено из `dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/`)
 ```
 [custom0]

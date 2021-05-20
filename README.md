@@ -263,6 +263,7 @@ binding='<Super>5'
 command='jumpapp Discord'
 name='discord'
 ```
+* Добавить можно такой командой: `cat programs | dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/`
 * Можно использовать `wmctrl -lx` для определения класса окна.
 * Чтобы добавить какую-то программу в path, чтобы она запускалась jumpapp'ом, нужно для начала найти PID этой программы, а затем использовать: `ls -al /proc/<PID>/exe`, и можно узнать где она находится.
 

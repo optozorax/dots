@@ -8,6 +8,25 @@
 * Sublime Merge
 * Telegram
 
+# Установить
+
+* https://www.maartenbaert.be/simplescreenrecorder/ `sudo apt install simplescreenrecorder`
+
+* https://github.com/mikf/gallery-dl - для массового скачивания картинок с сайтов с ними
+
+* youtube-dl - для скачивания ютуб видео
+
+* geeqie - для поиска одинаковых изображений, `sudo apt install geeqie`
+
+* obsidian.md - для ведения локальной базы данных и мыслей
+
+* qimgv - просмотрщик изображений
+```
+sudo add-apt-repository ppa:easymodo/qimgv
+sudo apt-get update
+sudo apt install qimgv
+```
+
 # Rust
 
 ```bash
@@ -15,12 +34,58 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 ```bash
-cargo install bat ripgrep starship
+cargo install 
+	bat  # улучшенный cat
+	ripgrep  # улучшенный grep
+	fd-find # улучшенный find
+	exa # улучшенный ls
+	bottom # улучшенный top
+	jql # улучшенный jq
+	git-delta # # улучшенный diff
+	# --- --- ---  --- --- ---  --- --- ---  
+	starship # консолньая оболочка
+	du-dust # просмотр что сколько памяти занимает
+	simple-http-server # для локального хостинга веб-страниц
 ```
 
 * `bat` - `cat` с подсветкой синтаксиса
 * `ripgrep` - очень быстрый `grep`
 * `starship` - отображение текущей ветки и прочего в консоли без установки всякого ZSH
+
+# wasm
+
+```bash
+rustup target add wasm32-unknown-unknown
+```
+
+Установить [wasm-strip](https://github.com/WebAssembly/wabt/) (бинарники есть в секции releases).
+
+# git 
+
+В `subl ~/.gitconfig` вставить:
+```gitconfig
+[credential]
+	helper = store
+
+[user]
+	name = ilya sheprut
+	email = optozorax@gmail.com
+
+[pager]
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
+
+[delta]
+	plus-style = "syntax #012800"
+	minus-style = "syntax #340001"
+	syntax-theme = Monokai Extended
+	navigate = true
+
+[interactive]
+	diffFilter = delta --color-only
+```
 
 # gnome-tweaks
 
@@ -28,22 +93,23 @@ cargo install bat ripgrep starship
 sudo apt install gnome-tweaks
 ```
 
-* Tweaks -> Fonts, Scaling Factor = 1.45 (так как у меня 4к экран, и нвидия, это лучший способ сделать такое, fractional scaling в обыпчных настройках не будет работать)
+* Tweaks -> Fonts, Scaling Factor = 1.45 (так как у меня 4к экран, и нвидия, это лучший способ сделать такое, fractional scaling в обычных настройках не будет работать)
 * Настроить переключение клавиатуры на CapsLock
 
 # Проги
 
 ```bash
-sudo apt install flameshot blueman
+sudo apt install flameshot blueman xzoom
 ```
 
 * flameshot - для снятия скриншотов
 * blueman - для работы блютуз наушников
+* xzoom - увеличительное стекло
 
 # Либы для программирования
 
 ```bash
-sudo apt install libssl-dev libxcb-randr0-dev libxcb-xtest0-dev libxcb-xinerama0-dev libxcb-shape0-dev libxcb-xkb-dev libxcb-xfixes0-dev libgl1-mesa-dev libxi-dev
+sudo apt install libssl-dev libxcb-randr0-dev libxcb-xtest0-dev libxcb-xinerama0-dev libxcb-shape0-dev libxcb-xkb-dev libxcb-xfixes0-dev libgl1-mesa-dev libxi-dev pkg-config libx11-dev libxi-dev libgl1-mesa-dev libasound2-dev
 ```
 
 # Sublime Text
@@ -169,6 +235,7 @@ rm -rf JetBrains
 	```
 * `eval "$(starship init bash)"` - чтобы работала консолька `starship`
 * `stty intr ^J` - теперь `Ctrl+C` не будет выключать приложение, а это будет работать через `Ctrl+J`
+* `stty werase '^H'` - Ctrl+Backspace будет стирать слова.
 * Возможность делать консольку цветной (для определения множества окон консоли при выборе различных приложений):
 ```bash
 alias color_normal='echo -e "\033]11;#333333\007"'
@@ -176,6 +243,7 @@ alias color_blue='echo -e "\033]11;#2d2f39\007"'
 alias color_red='echo -e "\033]11;#363030\007"'
 alias color_miku='echo -e "\033]11;#2f3737\007"'
 ```
+* alias ubit_nahui="jobs -p | xargs kill -KILL" - для завершения программ, которые были остановлены через Ctrl+Z
 
 ## Starship
 
@@ -216,54 +284,57 @@ threshold = -1
   ```
   curl https://raw.githubusercontent.com/mkropat/jumpapp/master/jumpapp > ~/.cargo/bin/jumpapp
   ```
-* Поставить следующие хоткеи: (получено из `dconf dump /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/`)
+* Поставить следующие хоткеи: (получено из `dconf dump /`)
 ```
-[custom0]
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Super>1'
-command='jumpapp telegram'
+command='jumpapp Telegram'
 name='telegram'
 
-[custom1]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
 binding='<Super>2'
-command='jumpapp firefox'
+command='jumpapp chrome'
 name='firefox'
 
-[custom2]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
 binding='<Super>3'
 command='jumpapp sublime_text'
 name='sublime text'
 
-[custom3]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3]
 binding='<Super>4'
 command='jumpapp nautilus'
 name='files'
 
-[custom4]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4]
 binding='<Primary><Shift>Print'
 command='flameshot gui'
 name='flameshot'
 
-[custom5]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5]
 binding='<Super>6'
 command='jumpapp gnome-terminal'
 name='terminal'
 
-[custom6]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6]
 binding='<Super>8'
-command='jumpapp spotify'
+command='jumpapp element'
 name='spotify'
 
-[custom7]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7]
 binding='<Super>9'
 command='jumpapp sublime_merge'
 name='merge'
 
-[custom8]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8]
 binding='<Super>5'
 command='jumpapp Discord'
 name='discord'
 ```
-* Добавить можно такой командой: `cat programs | dconf load /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/`
+* Добавить можно такой командой: `cat programs | dconf load /`
 * Можно использовать `wmctrl -lx` для определения класса окна.
 * Чтобы добавить какую-то программу в path, чтобы она запускалась jumpapp'ом, нужно для начала найти PID этой программы, а затем использовать: `ls -al /proc/<PID>/exe`, и можно узнать где она находится.
 
